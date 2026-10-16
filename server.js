@@ -1,35 +1,164 @@
-const http = require('http'), fs = require('fs'), path = require('path');
+
+const http = require('http');
+const fs = require('fs');
+const path = require('path');
+
 const PORT = process.env.PORT || 3000;
 const KEY = process.env.ADMIN_KEY || 'admin';
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_KEY = process.env.SUPABASE_SERVICE_KEY;
 const PUB = path.join(__dirname, 'public');
-const DB = path.join(__dirname, 'data', 'results.json');
-fs.mkdirSync(path.dirname(DB), { recursive: true });
-const load = () => { try { return JSON.parse(fs.readFileSync(DB, 'utf8')); } catch { return []; } };
-const save = d => fs.writeFileSync(DB, JSON.stringify(d, null, 2));
-const types = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8' };
-const readBody = req => new Promise(r => { let b = ''; req.on('data', c => b += c); req.on('end', () => { try { r(JSON.parse(b)); } catch { r({}); } }); });
+
+if (!SUPABASE_URL || !SUPABASE_KEY) {
+  console.error('Variables Supabase manquantes.');
+  process.exit(1);
+}
+
+const types = {
+  '.html': 'text/html; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.css': 'text/css; charset=utf-8'
+};
+
+const headers = {
+  'apikey': SUPABASE_KEY,
+  'Authorization': `Bearer ${SUPABASE_KEY}`,
+  'Content-Type': 'application/json'
+};
+
+async function supabase(endpoint, options = {}) {
+  const response = await fetch(
+    `${SUPABASE_URL.replace(/\/$/, '')}/rest/v1/${endpoint}`,
+    {
+      ...options,
+      headers: { ...headers, ...(options.headers || {}) }
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`Supabase ${response.status}: ${await response.text()}`);
+  }
+
+  const content = await response.text();
+  return content ? JSON.parse(content) : null;
+}
+
+function readBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = '';
+
+    req.on('data', chunk => {
+      body += chunk;
+      if (body.length > 100000) {
+        req.destroy();
+        reject(new Error('Requête trop volumineuse'));
+      }
+    });
+
+    req.on('end', () => {
+      try {
+        resolve(JSON.parse(body));
+      } catch {
+        resolve({});
+      }
+    });
+
+    req.on('error', reject);
+  });
+}
 
 http.createServer(async (req, res) => {
   const u = new URL(req.url, 'http://localhost');
-  const json = (o, c = 200) => { res.writeHead(c, { 'Content-Type': 'application/json' }); res.end(JSON.stringify(o)); };
 
-  if (u.pathname === '/api/save' && req.method === 'POST') {
-    const b = await readBody(req);
-    const all = load();
-    let e = b.id && all.find(x => x.id === b.id);
-    if (!e) { e = { id: all.reduce((m, x) => Math.max(m, x.id), 0) + 1, date: new Date().toISOString() }; all.push(e); }
-    Object.assign(e, { nom: String(b.nom || '').slice(0, 60), answers: b.answers, ranking: b.ranking, winner: b.winner, sig: b.sig, verdict: b.verdict || null });
-    save(all);
-    return json({ id: e.id });
-  }
-  if (u.pathname === '/api/results') {
-    if (u.searchParams.get('key') !== KEY) return json({ error: 'key' }, 401);
-    return json(load().reverse());
-  }
+  const json = (data, status = 200) => {
+    res.writeHead(status, {
+      'Content-Type': 'application/json; charset=utf-8',
+      'Cache-Control': 'no-store'
+    });
+    res.end(JSON.stringify(data));
+  };
 
-  let f = u.pathname === '/' ? '/index.html' : u.pathname === '/admin' ? '/admin.html' : u.pathname;
-  const p = path.normalize(path.join(PUB, f));
-  if (!p.startsWith(PUB) || !fs.existsSync(p) || fs.statSync(p).isDirectory()) { res.writeHead(404); return res.end(); }
-  res.writeHead(200, { 'Content-Type': types[path.extname(p)] || 'application/octet-stream' });
-  fs.createReadStream(p).pipe(res);
-}).listen(PORT, () => console.log('http://localhost:' + PORT));
+  try {
+    if (u.pathname === '/api/save' && req.method === 'POST') {
+      const b = await readBody(req);
+
+      const id = b.id
+        ? String(b.id)
+        : require('crypto').randomUUID();
+
+      const existing = b.id
+        ? await supabase(
+            `quiz_results?select=data&id=eq.${encodeURIComponent(id)}`
+          )
+        : [];
+
+      const previous = existing[0]?.data || {};
+
+      const data = {
+        ...previous,
+        id,
+        date: previous.date || new Date().toISOString(),
+        nom: String(b.nom || '').slice(0, 60),
+        answers: b.answers,
+        ranking: b.ranking,
+        winner: b.winner,
+        sig: b.sig,
+        verdict: b.verdict || null
+      };
+
+      await supabase('quiz_results?on_conflict=id', {
+        method: 'POST',
+        headers: { Prefer: 'resolution=merge-duplicates' },
+        body: JSON.stringify({ id, data })
+      });
+
+      return json({ id });
+    }
+
+    if (u.pathname === '/api/results') {
+      if (u.searchParams.get('key') !== KEY) {
+        return json({ error: 'key' }, 401);
+      }
+
+      const rows = await supabase(
+        'quiz_results?select=data&order=created_at.desc'
+      );
+
+      return json(rows.map(row => row.data));
+    }
+
+    const file = u.pathname === '/'
+      ? '/index.html'
+      : u.pathname === '/admin'
+        ? '/admin.html'
+        : u.pathname;
+
+    const target = path.resolve(PUB, '.' + file);
+
+    if (
+      !target.startsWith(PUB + path.sep) ||
+      !fs.existsSync(target) ||
+      fs.statSync(target).isDirectory()
+    ) {
+      res.writeHead(404);
+      return res.end();
+    }
+
+    res.writeHead(200, {
+      'Content-Type': types[path.extname(target)] || 'application/octet-stream'
+    });
+
+    fs.createReadStream(target).pipe(res);
+
+  } catch (error) {
+    console.error('Erreur serveur :', error.message);
+
+    if (!res.headersSent) {
+      json({ error: 'Erreur serveur' }, 500);
+    } else {
+      res.end();
+    }
+  }
+}).listen(PORT, () => {
+  console.log(`Serveur démarré sur le port ${PORT}`);
+});
