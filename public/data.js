@@ -1,8 +1,8 @@
 const PROFILS = {
-  P1: { t: 'Premier "amour de jeunesse" d\'ado', d: `Collège ou lycée, histoire brève mais très voire trop fusionnelle, la découverte de premiers sentiments prononcés ; s'est arrêtée rapidement et n'a jamais repris, tout en laissant une marque assez spéciale, comme vive et inachevée.` },
+  P1: { t: 'Jack Oswald White', d: `Tu l'as pas retrouvé, ou tu le retrouveras pas dans les autres résultats. Tu peux toujours gagner en le décrivant bien.` },
   P2: { t: 'Histoire brève de jeunesse', d: `Lycée ou supérieur, relativement intense, fusionnel mais assez court, pas une réelle rupture, juste un bref moment de flirt qui n'a pas vraiment laissé quelque chose derrière lui.` },
   P3: { t: 'Ex de long terme', d: `Relation "sérieuse" d'environ 1 an ou plus, a structuré une période, un espoir de vraiment continuer et construire ensemble. Le premier amour réellement profond, donc la première rupture... réellement profonde aussi.` },
-  P4: { t: 'Ami ++', d: `Un amour platonique jamais avoué ou jamais concrétisé, sans savoir vraiment pourquoi. Comme si la porte était grande ouverte mais que quelque chose faisait qu'on y entrait pas quand même. Des flashbacks de temps en temps, mais rien de spécial si ce n'est "qu'est ce que ça aurait pu donner ?".` },
+  P4: { t: 'Ami ++', d: `Un amour platonique jamais avoué ou jamais concrétisé, sans savoir vraiment pourquoi. Comme si la porte était grande ouverte mais que quelque chose faisait qu'on y entrait quand même pas. Des flashbacks de temps en temps, mais rien de spécial si ce n'est "qu'est ce que ça aurait pu donner ?".` },
   P5: { t: `L'entre-deux`, d: `Une relation mi-sérieuse, mi-flirt. Sans savoir vraiment ce que c'est, mais en appréciant juste ; la complicité sans égal venait aussi avec son lot de différences et de désaccords, ce qui a peut-être donné cet impression d'amour incompatible, mais très fusionnel.` },
   P6: { t: `L'indélébile`, d: `La rupture la plus profonde, soit récente donc douloureuse, soit ancienne et persistante. Pas besoin d'aller plus loin pour comprendre l'amour que c'était.` }
 };
