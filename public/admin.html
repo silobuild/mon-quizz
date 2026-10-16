@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main id="list"></main>
+<script>
+const list = document.getElementById('list');
+const key = sessionStorage.k || (sessionStorage.k = prompt('Clé') || '');
+const el = (t, x) => { const e = document.createElement(t); if (x) e.textContent = x; return e; };
+fetch('/api/results?key=' + encodeURIComponent(key)).then(r => { if (!r.ok) { sessionStorage.removeItem('k'); throw 0; } return r.json(); }).then(data => {
+  data.forEach(e => {
+    const d = el('details'), sm = el('summary', `#${e.id} ${e.nom} · ${e.ranking[0].titre}${e.verdict ? ' · ' + e.verdict : ''}`);
+    d.append(sm, el('p', e.sig));
+    const r = el('ol'); e.ranking.forEach(x => r.append(el('li', `${x.titre} (${x.pts})`)));
+    const a = el('ol'); e.answers.forEach(x => a.append(el('li', `${x.t} → ${x.r}`)));
+    d.append(r, el('p', ''), a);
+    list.append(d);
+  });
+  if (!data.length) list.append(el('p', '—'));
+}).catch(() => list.append(el('p', 'Clé incorrecte')));
+</script>
+</body>
+</html>

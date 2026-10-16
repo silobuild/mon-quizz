@@ -1,0 +1,488 @@
+[
+  {
+    "id": 1,
+    "date": "2026-10-16T02:31:26.105Z",
+    "nom": "Lucas",
+    "answers": [
+      {
+        "q": "1",
+        "t": "As-tu déjà beaucoup pensé à une personne pendant qu'elle faisait partie de ton quotidien ou était proche de toi ?",
+        "r": "Non"
+      },
+      {
+        "q": "2",
+        "t": "As-tu déjà pensé à une personne alors qu'il n'y avait pas de raison particulière de le faire ?",
+        "r": "Oui"
+      },
+      {
+        "q": "3",
+        "t": "Ce genre de pensée est-il souvent déclenché par une chanson, une odeur ou un endroit ?",
+        "r": "Oui"
+      },
+      {
+        "q": "4",
+        "t": "T'arrive-t-il de penser à des gens que tu ne vois plus du tout ?",
+        "r": "Oui"
+      },
+      {
+        "q": "5",
+        "t": "Ces pensées te ramènent-elles souvent à l'époque où tu étais plus jeune ?",
+        "r": "Oui"
+      },
+      {
+        "q": "6",
+        "t": "Cette période dont tu te souviens, c'était avant le bac ?",
+        "r": "Oui"
+      },
+      {
+        "q": "7a",
+        "t": "Plutôt le collège que le lycée ?",
+        "r": "Non"
+      },
+      {
+        "q": "8",
+        "t": "Ça se passait à Paris même, pas en banlieue ?",
+        "r": "Oui"
+      },
+      {
+        "q": "9",
+        "t": "Plutôt rive gauche ?",
+        "r": "Peut-être / je ne sais pas"
+      },
+      {
+        "q": "10",
+        "t": "Autour du Quartier latin, du Luxembourg ou de Montparnasse (5e, 6e, 14e) ?",
+        "r": "Non"
+      },
+      {
+        "q": "11",
+        "t": "Ça tournait surtout dans ou autour de ton établissement (lycée, fac) ?",
+        "r": "Oui"
+      },
+      {
+        "q": "12",
+        "t": "Entre vous, il s'est vraiment passé quelque chose (un baiser, un « on sort ensemble ») ?",
+        "r": "Non"
+      },
+      {
+        "q": "13b",
+        "t": "Il y avait quelque chose d'évident entre vous, que personne n'a franchi ?",
+        "r": "Non"
+      },
+      {
+        "q": "15",
+        "t": "Vous étiez très complices, mais avec des différences et des désaccords qui revenaient ?",
+        "r": "Non"
+      },
+      {
+        "q": "16",
+        "t": "Cette personne a-t-elle été ton premier vrai sentiment amoureux ?",
+        "r": "Oui"
+      },
+      {
+        "q": "17",
+        "t": "La fin (ou l'absence de suite) reste-t-elle ce qui t'a le plus marqué émotionnellement dans ta vie ?",
+        "r": "Oui"
+      },
+      {
+        "q": "19",
+        "t": "Il reste un côté beau mais inachevé, qui revient de temps en temps ?",
+        "r": "Oui"
+      },
+      {
+        "q": "20",
+        "t": "Tu t'es déjà demandé « qu'est-ce que ça aurait pu donner ? »",
+        "r": "Oui"
+      },
+      {
+        "q": "21",
+        "t": "C'était un renoi ?",
+        "r": "Non"
+      },
+      {
+        "q": "22",
+        "t": "Elle/il avait à peu près ton âge, à un ou deux ans près ?",
+        "r": "Oui"
+      },
+      {
+        "q": "23",
+        "t": "C'était un asiat ?",
+        "r": "Non"
+      },
+      {
+        "q": "24",
+        "t": "C'était un rebeu ?",
+        "r": "Oui"
+      },
+      {
+        "q": "26",
+        "t": "Vous êtes restés en contact après ?",
+        "r": "Non"
+      }
+    ],
+    "ranking": [
+      {
+        "p": "P1",
+        "titre": "Premier \"amour de jeunesse\" d'ado",
+        "pts": 23
+      },
+      {
+        "p": "P4",
+        "titre": "Ami ++",
+        "pts": 21
+      },
+      {
+        "p": "P6",
+        "titre": "L'indélébile",
+        "pts": 10
+      },
+      {
+        "p": "P5",
+        "titre": "L'entre-deux",
+        "pts": 8
+      },
+      {
+        "p": "P3",
+        "titre": "Ex de long terme",
+        "pts": 7
+      },
+      {
+        "p": "P2",
+        "titre": "Histoire brève de jeunesse",
+        "pts": 7
+      }
+    ],
+    "winner": "P1",
+    "sig": "Une personne rebeu, du même âge, rencontrée au lycée, à Paris, 7e/13e/15e, autour de l'établissement, plus en contact.",
+    "verdict": "juste"
+  },
+  {
+    "id": 2,
+    "date": "2026-10-16T02:39:04.481Z",
+    "nom": "Lucas 2",
+    "answers": [
+      {
+        "q": "1",
+        "t": "As-tu déjà beaucoup pensé à une personne pendant qu'elle faisait partie de ton quotidien ou était proche de toi ?",
+        "r": "Non"
+      },
+      {
+        "q": "2",
+        "t": "As-tu déjà pensé à une personne alors qu'il n'y avait pas de raison particulière de le faire ?",
+        "r": "Oui"
+      },
+      {
+        "q": "3",
+        "t": "Ce genre de pensée est-il souvent déclenché par une chanson, une odeur ou un endroit ?",
+        "r": "Non"
+      },
+      {
+        "q": "4",
+        "t": "T'arrive-t-il de penser à des gens que tu ne vois plus du tout ?",
+        "r": "Non"
+      },
+      {
+        "q": "5",
+        "t": "Ces pensées te ramènent-elles souvent à l'époque où tu étais plus jeune ?",
+        "r": "Oui"
+      },
+      {
+        "q": "6",
+        "t": "Cette période dont tu te souviens, c'était avant le bac ?",
+        "r": "Non"
+      },
+      {
+        "q": "7b",
+        "t": "C'était pendant tes études supérieures ?",
+        "r": "Oui"
+      },
+      {
+        "q": "8",
+        "t": "Ça se passait à Paris même, pas en banlieue ?",
+        "r": "Non"
+      },
+      {
+        "q": "9",
+        "t": "Plutôt côté ouest ou sud ?",
+        "r": "Non"
+      },
+      {
+        "q": "10",
+        "t": "Dans une grande ville proche de Paris ?",
+        "r": "Oui"
+      },
+      {
+        "q": "11",
+        "t": "Ça tournait surtout dans ou autour de ton établissement (lycée, fac) ?",
+        "r": "Non"
+      },
+      {
+        "q": "12",
+        "t": "Entre vous, il s'est vraiment passé quelque chose (un « on est en couple ») ?",
+        "r": "Oui"
+      },
+      {
+        "q": "13",
+        "t": "Ça a duré plus d'un an ?",
+        "r": "Non"
+      },
+      {
+        "q": "14",
+        "t": "C'était très fusionnel, vous étiez tout le temps collés, presque trop ?",
+        "r": "Oui"
+      },
+      {
+        "q": "15",
+        "t": "Vous étiez très complices, mais avec des différences et des désaccords qui revenaient ?",
+        "r": "Oui"
+      },
+      {
+        "q": "16",
+        "t": "Cette personne a-t-elle été ton premier vrai sentiment amoureux ?",
+        "r": "Non"
+      },
+      {
+        "q": "17",
+        "t": "La fin (ou l'absence de suite) reste-t-elle ce qui t'a le plus marqué émotionnellement dans ta vie ?",
+        "r": "Oui"
+      },
+      {
+        "q": "18",
+        "t": "Ça s'est éteint sans vraie rupture, ça s'est juste arrêté ?",
+        "r": "Non"
+      },
+      {
+        "q": "19",
+        "t": "Il reste un côté beau mais inachevé, qui revient de temps en temps ?",
+        "r": "Oui"
+      },
+      {
+        "q": "20",
+        "t": "Tu t'es déjà demandé « qu'est-ce que ça aurait pu donner ? »",
+        "r": "Non"
+      },
+      {
+        "q": "21",
+        "t": "C'était un renoi ?",
+        "r": "Oui"
+      },
+      {
+        "q": "22",
+        "t": "Elle/il avait à peu près ton âge, à un ou deux ans près ?",
+        "r": "Non"
+      },
+      {
+        "q": "23",
+        "t": "C'était un asiat ?",
+        "r": "Oui"
+      },
+      {
+        "q": "24",
+        "t": "C'était un rebeu ?",
+        "r": "Oui"
+      },
+      {
+        "q": "26",
+        "t": "Vous êtes restés en contact après ?",
+        "r": "Non"
+      }
+    ],
+    "ranking": [
+      {
+        "p": "P6",
+        "titre": "L'indélébile",
+        "pts": 18
+      },
+      {
+        "p": "P2",
+        "titre": "Histoire brève de jeunesse",
+        "pts": 17
+      },
+      {
+        "p": "P1",
+        "titre": "Premier \"amour de jeunesse\" d'ado",
+        "pts": 16
+      },
+      {
+        "p": "P5",
+        "titre": "L'entre-deux",
+        "pts": 13
+      },
+      {
+        "p": "P3",
+        "titre": "Ex de long terme",
+        "pts": 12
+      },
+      {
+        "p": "P4",
+        "titre": "Ami ++",
+        "pts": 5
+      }
+    ],
+    "winner": "P6",
+    "sig": "Une personne renoi, d'un âge différent, rencontrée pendant tes études, en banlieue nord/est (ville proche), lors de sorties, plus en contact.",
+    "verdict": null
+  },
+  {
+    "id": 3,
+    "date": "2026-10-16T02:40:43.706Z",
+    "nom": "Lucas 3",
+    "answers": [
+      {
+        "q": "1",
+        "t": "As-tu déjà beaucoup pensé à une personne pendant qu'elle faisait partie de ton quotidien ou était proche de toi ?",
+        "r": "Non"
+      },
+      {
+        "q": "2",
+        "t": "As-tu déjà pensé à une personne alors qu'il n'y avait pas de raison particulière de le faire ?",
+        "r": "Oui"
+      },
+      {
+        "q": "3",
+        "t": "Ce genre de pensée est-il souvent déclenché par une chanson, une odeur ou un endroit ?",
+        "r": "Peut-être / je ne sais pas"
+      },
+      {
+        "q": "4",
+        "t": "T'arrive-t-il de penser à des gens que tu ne vois plus du tout ?",
+        "r": "Non"
+      },
+      {
+        "q": "5",
+        "t": "Ces pensées te ramènent-elles souvent à l'époque où tu étais plus jeune ?",
+        "r": "Oui"
+      },
+      {
+        "q": "6",
+        "t": "Cette période dont tu te souviens, c'était avant le bac ?",
+        "r": "Non"
+      },
+      {
+        "q": "7b",
+        "t": "C'était pendant tes études supérieures ?",
+        "r": "Oui"
+      },
+      {
+        "q": "8",
+        "t": "Ça se passait à Paris même, pas en banlieue ?",
+        "r": "Non"
+      },
+      {
+        "q": "9",
+        "t": "Plutôt côté ouest ou sud ?",
+        "r": "Oui"
+      },
+      {
+        "q": "10",
+        "t": "Dans une grande ville proche de Paris ?",
+        "r": "Oui"
+      },
+      {
+        "q": "11",
+        "t": "Ça tournait surtout dans ou autour de ton établissement (lycée, fac) ?",
+        "r": "Non"
+      },
+      {
+        "q": "12",
+        "t": "Entre vous, il s'est vraiment passé quelque chose (un « on est en couple ») ?",
+        "r": "Oui"
+      },
+      {
+        "q": "13",
+        "t": "Ça a duré plus d'un an ?",
+        "r": "Oui"
+      },
+      {
+        "q": "15",
+        "t": "Vous étiez très complices, mais avec des différences et des désaccords qui revenaient ?",
+        "r": "Oui"
+      },
+      {
+        "q": "16",
+        "t": "Cette personne a-t-elle été ton premier vrai sentiment amoureux ?",
+        "r": "Non"
+      },
+      {
+        "q": "17",
+        "t": "La fin (ou l'absence de suite) reste-t-elle ce qui t'a le plus marqué émotionnellement dans ta vie ?",
+        "r": "Oui"
+      },
+      {
+        "q": "18",
+        "t": "Ça s'est éteint sans vraie rupture, ça s'est juste arrêté ?",
+        "r": "Non"
+      },
+      {
+        "q": "19",
+        "t": "Il reste un côté beau mais inachevé, qui revient de temps en temps ?",
+        "r": "Oui"
+      },
+      {
+        "q": "20",
+        "t": "Tu t'es déjà demandé « qu'est-ce que ça aurait pu donner ? »",
+        "r": "Non"
+      },
+      {
+        "q": "21",
+        "t": "C'était un renoi ?",
+        "r": "Non"
+      },
+      {
+        "q": "22",
+        "t": "Elle/il avait à peu près ton âge, à un ou deux ans près ?",
+        "r": "Oui"
+      },
+      {
+        "q": "23",
+        "t": "C'était un asiat ?",
+        "r": "Non"
+      },
+      {
+        "q": "24",
+        "t": "C'était un rebeu ?",
+        "r": "Oui"
+      },
+      {
+        "q": "26",
+        "t": "Vous êtes restés en contact après ?",
+        "r": "Non"
+      }
+    ],
+    "ranking": [
+      {
+        "p": "P6",
+        "titre": "L'indélébile",
+        "pts": 21
+      },
+      {
+        "p": "P3",
+        "titre": "Ex de long terme",
+        "pts": 16
+      },
+      {
+        "p": "P2",
+        "titre": "Histoire brève de jeunesse",
+        "pts": 12
+      },
+      {
+        "p": "P5",
+        "titre": "L'entre-deux",
+        "pts": 10
+      },
+      {
+        "p": "P1",
+        "titre": "Premier \"amour de jeunesse\" d'ado",
+        "pts": 10
+      },
+      {
+        "p": "P4",
+        "titre": "Ami ++",
+        "pts": 5
+      }
+    ],
+    "winner": "P6",
+    "sig": "Une personne rebeu, du même âge, rencontrée pendant tes études, en banlieue ouest/sud (ville proche), lors de sorties, plus en contact.",
+    "verdict": "juste"
+  }
+]
