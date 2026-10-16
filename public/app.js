@@ -7,10 +7,14 @@ let s;
 
 const fresh = nom => ({ nom, a: {}, log: [], pts: Object.fromEntries(PK.map(p => [p, 0])), h: {}, rej: [], queue: [], early: false, id: null, verdict: null });
 
+// P1 n'est éligible que si la réponse à Q24 (rebeu) est Oui (condition vérifiée une fois Q24 posée)
+const elig = (s, p) => p !== 'P1' || !('24' in s.a) || s.a['24'] === 'o';
+
 const sorted = s => {
   const sub = p => ['12', '13', '13b', '14', '15', '16', '17', '18', '19', '20'].reduce((t, i) => t + ((s.h[i] || {})[p] || 0), 0);
   const tb = p => ((s.h['16'] || {})[p] || 0) + ((s.h['17'] || {})[p] || 0);
-  return [...PK].sort((x, y) => s.pts[y] - s.pts[x] || sub(y) - sub(x) || tb(y) - tb(x));
+  const o = [...PK].sort((x, y) => s.pts[y] - s.pts[x] || sub(y) - sub(x) || tb(y) - tb(x));
+  return [...o.filter(p => elig(s, p)), ...o.filter(p => !elig(s, p))];
 };
 
 function nextQ() {
@@ -51,7 +55,7 @@ function signalement() {
   return p.join(', ') + '.';
 }
 
-const leader = () => sorted(s).find(p => !s.rej.includes(p));
+const leader = () => sorted(s).find(p => elig(s, p) && !s.rej.includes(p));
 
 function persist() {
   const o = sorted(s);
