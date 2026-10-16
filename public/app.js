@@ -57,8 +57,8 @@ function persist() {
   const o = sorted(s);
   return fetch('/api/save', {
     method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ id: s.id, nom: s.nom, answers: s.log, ranking: o.map(p => ({ p, titre: PROFILS[p].t, pts: s.pts[p] })), winner: leader(), sig: signalement(), verdict: s.verdict })
-  }).then(r => r.json()).then(r => { s.id = r.id; }).catch(() => {});
+    body: JSON.stringify({ id: s.id, tok: s.tok, nom: s.nom, answers: s.log, ranking: o.map(p => ({ p, titre: PROFILS[p].t, pts: s.pts[p] })), winner: leader(), sig: signalement(), verdict: s.verdict })
+  }).then(r => r.json()).then(r => { s.id = r.id; s.tok = r.tok; }).catch(() => {});
 }
 
 const el = (tag, text, cls, fn) => { const e = document.createElement(tag); if (text) e.textContent = text; if (cls) e.className = cls; if (fn) e.onclick = fn; return e; };
@@ -80,7 +80,7 @@ function step() {
 function result() {
   const p = leader(), P = PROFILS[p];
   persist();
-  const box = [el('h1', P.t), el('p', P.d), el('p', signalement(), 'mut')];
+  const box = [el('h1', P.t), el('p', P.d)];
   if (s.verdict === 'juste') return app.replaceChildren(...box, el('button', 'Recommencer', '', start));
   app.replaceChildren(...box,
     el('button', "C'est juste ?", 'go', () => { s.verdict = 'juste'; persist(); result(); }),
